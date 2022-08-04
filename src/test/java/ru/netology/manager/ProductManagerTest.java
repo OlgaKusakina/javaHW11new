@@ -19,7 +19,7 @@ class ProductManagerTest {
     Product smartphone3 = new Smartphone(7, "Iphone 12", 25000, "Samsung");
 
     @Test
-    public void addNewProduct(){
+    public void addNewProduct() {
         manager.addProduct(book1);
         manager.addProduct(book2);
         manager.addProduct(book3);
@@ -32,8 +32,9 @@ class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
     @Test
-    public void removeProduct(){
+    public void removeProduct() {
         manager.addProduct(book1);
         manager.addProduct(book2);
         manager.addProduct(book3);
@@ -42,11 +43,12 @@ class ProductManagerTest {
         manager.addProduct(smartphone2);
         manager.addProduct(smartphone3);
         manager.removeById(4);
-        Product[] expected = {book1, book2, book3,  smartphone1, smartphone2, smartphone3};
+        Product[] expected = {book1, book2, book3, smartphone1, smartphone2, smartphone3};
         Product[] actual = manager.getProducts();
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
     @Test
     public void searchProduct() {
         manager.addProduct(book1);
@@ -60,6 +62,14 @@ class ProductManagerTest {
         Product[] expected = {book2};
         Product[] actual = manager.searchBy("Гарри Поттерр и Тайная комната");
         Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindOneProductByName() {
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("Гарри Поттер и Узник Азкабана");
+        Assertions.assertArrayEquals(expected, actual);
+
     }
 
     @Test
@@ -90,38 +100,6 @@ class ProductManagerTest {
 
         Product[] expected = {};
         Product[] actual = manager.searchBy("Оля");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    void save() {
-        repository.save(book1);
-        repository.save(book2);
-        repository.save(book3);
-        repository.save(book4);
-        repository.save(smartphone1);
-        repository.save(smartphone2);
-        repository.save(smartphone3);
-        Product[] expected = {book1, book2, book3, book4, smartphone1, smartphone2, smartphone3};
-        Product[] actual = repository.getProducts();
-        Assertions.assertArrayEquals(expected, actual);
-
-
-    }
-
-    @Test
-    void removeById() {
-        repository.save(book1);
-        repository.save(book2);
-        repository.save(book3);
-        repository.save(book4);
-        repository.save(smartphone1);
-        repository.save(smartphone2);
-        repository.save(smartphone3);
-        repository.removeById(book4.getId());
-        Product[] expected = {book1, book2, book3, smartphone1, smartphone2, smartphone3};
-
-        Product[] actual = repository.getProducts();
         Assertions.assertArrayEquals(expected, actual);
     }
 
