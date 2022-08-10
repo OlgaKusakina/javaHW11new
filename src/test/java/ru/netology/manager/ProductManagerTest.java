@@ -15,7 +15,7 @@ class ProductManagerTest {
     Product book3 = new Book(3, "Гарри Поттер и Узник Азкабана", 1000, "Джоан Роулинг");
     Product book4 = new Book(4, "Гарри Поттер и Кубок огня", 500, "Джоан Роулинг");
     Product smartphone1 = new Smartphone(5, "Iphone 10", 5000, "Samsung");
-    Product smartphone2 = new Smartphone(6, "Iphone 11", 14000, "Xiaomi");
+    Product smartphone2 = new Smartphone(6, "Iphone 10", 14000, "Xiaomi");
     Product smartphone3 = new Smartphone(7, "Iphone 12", 25000, "Samsung");
 
     @Test
@@ -50,7 +50,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void searchProduct() {
+    public void searchOneProduct() {
         manager.addProduct(book1);
         manager.addProduct(book2);
         manager.addProduct(book3);
@@ -64,16 +64,10 @@ class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void shouldFindOneProductByName() {
-        Product[] expected = {};
-        Product[] actual = manager.searchBy("Гарри Поттер и Узник Азкабана");
-        Assertions.assertArrayEquals(expected, actual);
 
-    }
 
     @Test
-    public void searchProduct2() {
+    public void searchOneProduct2() {
         manager.addProduct(book1);
         manager.addProduct(book2);
         manager.addProduct(book3);
@@ -104,4 +98,22 @@ class ProductManagerTest {
     }
 
 
+    @Test
+    public void searchMultiPleProducts() {
+        manager.addProduct(book1);
+        manager.addProduct(book2);
+        manager.addProduct(book3);
+        manager.addProduct(book4);
+        manager.addProduct(smartphone1);
+        manager.addProduct(smartphone2);
+        manager.addProduct(smartphone3);
+        Product[] expected = {smartphone1, smartphone2};
+        Product[] actual = manager.searchBy("Iphone 10");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 }
+
+
+
+

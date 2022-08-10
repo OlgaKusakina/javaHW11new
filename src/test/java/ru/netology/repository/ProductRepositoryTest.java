@@ -20,7 +20,7 @@ public class ProductRepositoryTest {
     Product smartphone3 = new Smartphone(7, "Iphone 12", 25000, "Samsung");
 
 
-    // repositoryTest
+
     @Test
     void save() {
         repository.save(book1);
