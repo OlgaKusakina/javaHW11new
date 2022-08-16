@@ -66,22 +66,6 @@ class ProductManagerTest {
 
 
     @Test
-    public void searchOneProduct2() {
-        manager.addProduct(book1);
-        manager.addProduct(book2);
-        manager.addProduct(book3);
-        manager.addProduct(book4);
-        manager.addProduct(smartphone1);
-        manager.addProduct(smartphone2);
-        manager.addProduct(smartphone3);
-
-        Product[] expected = {smartphone1};
-        Product[] actual = manager.searchBy("Iphone 10");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-
-    @Test
     public void searchNotProduct() {
         manager.addProduct(book1);
         manager.addProduct(book2);
@@ -111,6 +95,21 @@ class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+    @Test
+    public void searchOneProduct2() {
+        manager.addProduct(book1);
+        manager.addProduct(book2);
+        manager.addProduct(book3);
+        manager.addProduct(book4);
+        manager.addProduct(smartphone1);
+        manager.addProduct(smartphone2);
+        manager.addProduct(smartphone3);
+
+        Product[] expected = {smartphone3};
+        Product[] actual = manager.searchBy("Iphone 12");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
 
 
