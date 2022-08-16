@@ -20,7 +20,6 @@ public class ProductRepositoryTest {
     Product smartphone3 = new Smartphone(7, "Iphone 12", 25000, "Samsung");
 
 
-
     @Test
     void save() {
         repository.save(book1);
@@ -31,10 +30,7 @@ public class ProductRepositoryTest {
         Product[] expected = {book1, book2, book3, book4};
         Product[] actual = repository.getProducts();
         Assertions.assertArrayEquals(expected, actual);
-
-
     }
-
 
     @Test
     void removeById() {
@@ -68,6 +64,5 @@ public class ProductRepositoryTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
 
 }

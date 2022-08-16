@@ -65,7 +65,6 @@ class ProductManagerTest {
     }
 
 
-
     @Test
     public void searchOneProduct2() {
         manager.addProduct(book1);
