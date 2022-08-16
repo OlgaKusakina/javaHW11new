@@ -59,7 +59,6 @@ public class ProductRepositoryTest {
         repository.save(smartphone3);
         Product[] expected = {book1, book2, book3, book4, smartphone1, smartphone2, smartphone3};
 
-
         Product[] actual = repository.getProducts();
 
         Assertions.assertArrayEquals(expected, actual);
